@@ -30,23 +30,24 @@ license that can be found in the LICENSE file.
 	<script>
 		Polymer('polymer-localstorage', {
 			useRaw: false,
-			ready: function() {
-				this.load();
-			},
-			valueChanged: function() {
+            ready: function () {
+                this.load();
+            },
+            valueChanged: function () {
 				this.save();
-			},
+            },
 			load: function() {
-				var s = window.localStorage.getItem(this.name);
-				if (s && !this.useRaw) {
-					this.value = JSON.parse(s);
-				} else {
-					this.value = s;
-				}
+                /*add*/ new Puppet('http://localhost:3000', null, this.value);
+				//remove var s = window.localStorage.getItem(this.name);
+                //remove if (s && !this.useRaw) {
+                //remove this.value = JSON.parse(s);
+                //remove } else {
+                //remove this.value = s;
+                //remove }
 			},
 			save: function() {
-				window.localStorage.setItem(this.name,
-					this.useRaw ? this.value : JSON.stringify(this.value));
+                //remove window.localStorage.setItem(this.name,
+                //remove 	this.useRaw ? this.value : JSON.stringify(this.value));
 			}
 		});
 	</script>
